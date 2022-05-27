@@ -1,11 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>View menu item</h1>
-    <table>
-        <tr>
-            <td>{{ menuItem.title }}</td>
-        </tr>
-    </table>
-    <a  href="{{ path('admin_index') }}">Back</a>
+    <div class="container">
+        <h1>View menu item</h1>
+        <table class="table table-striped">
+            <tr>
+                <td>{{ menuItem.id }}</td>
+            </tr>
+            <tr>
+                <td>{{ menuItem.title }}</td>
+            </tr>
+            <tr>
+                <td>{{ menuItem.description }}</td>
+            </tr>
+            <tr>
+                <td>{{ menuItem.tooltip }}</td>
+            </tr>
+            <tr>
+                <td>{{ menuItem.imageUrl }}</td>
+            </tr>
+        </table>
+        <a  href="{{ path('admin_index') }}">Back</a>
+    </div>
 {% endblock %}

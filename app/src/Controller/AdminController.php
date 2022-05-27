@@ -18,7 +18,9 @@ class AdminController extends AbstractController
      */
     public function index(MenuRepository $menuRepository): Response
     {
-        $menuItems = $menuRepository->findAll();
+        $menuItems = $menuRepository->findBy([
+            'deletedAt' => null
+        ]);
 
         return $this->render('admin/index.html.twig', [
             'menuItems' => $menuItems
@@ -60,7 +62,7 @@ class AdminController extends AbstractController
             );
         }
 
-        return $this->render('show.html.twig', [
+        return $this->render('admin/show.html.twig', [
             'menuItem' => $menuItem
         ]);
     }
@@ -84,5 +86,23 @@ class AdminController extends AbstractController
             'form' => $form,
             'menuItem' => $menuItem
         ]);
+    }
+
+    /**
+     * @Route("/admin/delete-menu-item/{id}", name="admin_delete_menu_item")
+     */
+    public function delete(Menu $menuItem)
+    {
+        try {
+            $menuItem->setDeletedAt(new \DateTimeImmutable());
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($menuItem);
+            $entityManager->flush();
+            $this->addFlash('success', 'Menu item deleted');
+            return $this->redirectToRoute('admin_index');
+        } catch (\Exception $e) {
+            $this->addFlash('danger', 'Delete failed, try later');
+            return $this->redirectToRoute('admin_index');
+        }
     }
 }
