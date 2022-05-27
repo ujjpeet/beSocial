@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>BeSocial admin</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>TITLE</td>
+                <td>DESCRIPTION</td>
+                <td>TOOLTIP</td>
+                <td>IMAGE</td>
+                <td>ACTIONS</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for menuItem in menuItems %}
+                <tr>
+                    <td>{{ menuItem.id }}</td>
+                    <td>{{ menuItem.title }}</td>
+                    <td>{{ menuItem.description }}</td>
+                    <td>{{ menuItem.tooltip }}</td>
+                    <td>{{ menuItem.imageUrl }}</td>
+                    <td>
+                        <a href="{{ path('admin_edit_menu_item', {'id':menuItem.id}) }}">edit</a>
+{#                        <a href="{{ path('admin_menu_item_delete', {'id':menuItem.id}) }}"#}
+{#                           onclick="return confirm('Are you sure you want to delete this menu item?');">delete</a>#}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table><br>
+    <a  href="{{ path('admin_new_menu_item') }}">Add new</a>
+{% endblock %}
