@@ -33,5 +33,16 @@
             </tbody>
         </table>
         <a  href="{{ path('admin_new_menu_item') }}">Add new</a>
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="row">
+                    <div class="col-12">
+                        <p class="alert alert-{{ label }}">
+                            {{ message }}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
     </div>
 {% endblock %}

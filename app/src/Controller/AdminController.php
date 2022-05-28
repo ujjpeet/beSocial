@@ -37,13 +37,17 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $menu = $form->getData();
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($menu);
-            $em->flush();
-            $this->addFlash('success', 'Menu item added successfully');
-            return $this->redirectToRoute('admin_index');
+            try{
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($menu);
+                $em->flush();
+                $this->addFlash('success', 'Menu item added successfully');
+                return $this->redirectToRoute('admin_index');
+            }  catch (\Exception $e) {
+                    $this->addFlash('danger', 'Menu item could not be added to database. Please try again.');
+                    return $this->redirectToRoute('admin_index');
+            }
         }
-        $this->addFlash('danger', 'Menu item could not be added to database. Please try again.');
         return $this->renderForm('admin/new.html.twig', [
             'form' => $form,
         ]);
@@ -61,7 +65,6 @@ class AdminController extends AbstractController
                 'No product found for id ' . $id
             );
         }
-
         return $this->render('admin/show.html.twig', [
             'menuItem' => $menuItem
         ]);
@@ -75,13 +78,20 @@ class AdminController extends AbstractController
         $form = $this->createForm(MenuType::class, $menuItem);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($menuItem);
-            $em->flush();
-            $this->addFlash('success', 'Menu item modified');
-            return $this->redirectToRoute('admin_index');
+            try {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($menuItem);
+                $em->flush();
+                $this->addFlash('success', 'Menu item modified');
+                return $this->redirectToRoute('admin_index');
+            } catch (\Exception $e) {
+                $this->addFlash('danger', 'Menu item could not be modified. Please try again.');
+                return $this->renderForm('admin/edit.html.twig', [
+                    'form' => $form,
+                    'menuItem' => $menuItem
+                ]);
+            }
         }
-        $this->addFlash('danger', 'Menu item could not be modified. Please try again.');
         return $this->renderForm('admin/edit.html.twig', [
             'form' => $form,
             'menuItem' => $menuItem
