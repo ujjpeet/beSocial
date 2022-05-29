@@ -5,6 +5,13 @@
         <h1>View menu item</h1>
         <table class="table table-striped">
             <tr>
+                <a href="{{ path('admin_edit_menu_item', {'id':menuItem.id}) }}">edit</a>
+            </tr>
+            <tr>
+                <a href="{{ path('admin_delete_menu_item', {'id':menuItem.id}) }}"
+                   onclick="return confirm('Are you sure you want to delete this menu item?');">delete</a>
+            </tr>
+            <tr>
                 <td>{{ menuItem.id }}</td>
             </tr>
             <tr>
@@ -17,7 +24,7 @@
                 <td>{{ menuItem.tooltip }}</td>
             </tr>
             <tr>
-                <td>{{ menuItem.imageUrl }}</td>
+                <td><img src="{{ asset('uploads/images/' ~ menuItem.imageUrl) }}" width="100%" alt=""></td>
             </tr>
         </table>
         <a  href="{{ path('admin_index') }}">Back</a>

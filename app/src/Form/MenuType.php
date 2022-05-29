@@ -6,6 +6,8 @@ use App\Entity\Menu;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\File;
 
 class MenuType extends AbstractType
 {
@@ -15,7 +17,22 @@ class MenuType extends AbstractType
             ->add('title')
             ->add('description')
             ->add('tooltip')
-            ->add('imageUrl')
+            ->add('imageUrl', FileType::class, [
+                    'label' => 'Image',
+                    'mapped' => false,
+                    'required' => false,
+                    'constraints' => [
+                        new File([
+                            'maxSize' => '150000K',
+//                            'mimeTypes' => [
+//                                'application/jpg',
+//                                'application/jpeg',
+//                                'application/png'
+//                            ],
+//                            'mimeTypesMessage' => 'Please upload a valid image',
+                        ])
+                    ],
+            ])
         ;
     }
 
