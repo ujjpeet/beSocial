@@ -1,0 +1,19 @@
+<nav>
+    <img src="{{ asset('icons/besocialicon.svg') }}" alt="">
+    <span> Social</span>
+    <img id="hamburger-menu" src="{{ asset('icons/hamburgermenu.svg') }}" alt="">
+    <div id="menu" style="display: none">
+        <table>
+            <img id="x" src="{{ asset('icons/x.svg') }}" alt="">
+            {% for menuItem in menuItems %}
+                <tr>
+                    <td class="menu-item">
+                        <a href="{{ path('show_menu_item', {'id':menuItem.id}) }}">
+                            {{ menuItem.title }}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</nav>

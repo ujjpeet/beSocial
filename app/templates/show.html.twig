@@ -1,26 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>BeSocial Menu Item</h1>
-    <div id="menu">
-        <table>
-            {% for menuItem in menuItems %}
-                <tr>
-                    <td>
-                        <a href="{{ path('show_menu_item', {'id':menuItem.id}) }}">
-                            {{ menuItem.title }}
-                        </a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
-    </div>
-    <div id="menuItem">
-        <div>{{ menuItem.title }}</div>
-        <div>{{ menuItem.description }}</div>
-        <div><img src="{{ asset('uploads/images/' ~ menuItem.imageUrl) }}" width="100%" alt=""></div>
-        <div>{{ menuItem.tooltip }}</div>
-        <div><button>Read more</button></div>
-        <a  href="{{ path('menu_page') }}">Back</a>
+      <div id="menuItem">
+          <div>2022</div>
+          <div id="title">{{ menuItem.title }}</div>
+          <div>{{ menuItem.description }}</div>
+          <div id="image"><img src="{{ asset('uploads/images/' ~ menuItem.imageUrl) }}" alt=""></div>
+          <div>{{ menuItem.tooltip }}</div>
+          <div><button>Read more...</button></div>
     </div>
 {% endblock %}

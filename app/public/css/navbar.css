@@ -1,0 +1,60 @@
+nav {
+    margin: 30px 50px;
+    position: relative;
+}
+
+img {
+    height: 100px;
+}
+
+span {
+    font-weight: 700;
+    font-size: 40px;
+}
+
+#hamburger-menu {
+    height: 40px;
+    float: right;
+    cursor: pointer;
+}
+
+#menu {
+    position: fixed;
+    width: 33%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background-color: orangered;
+    border-radius: 30px;
+    z-index: 9;
+}
+
+#x {
+    float: right;
+    border: 5px solid white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+#menu table {
+    width: 100%;
+}
+
+.menu-item {
+    text-align: center;
+}
+
+.menu-item a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 40px
+}
+
+.menu-item a:hover {
+    color: black;
+}
