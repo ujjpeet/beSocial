@@ -16,6 +16,9 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/property-access" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/property-info" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/form" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/mime" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/polyfill-intl-idn" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/asset" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

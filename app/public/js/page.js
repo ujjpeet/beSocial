@@ -1,8 +1,15 @@
 $( document ).ready(function() {
     $('#hamburger-menu').on('click', function(){
-        $('#menu').css("display", "block");
+        $('#pop-up-menu').css("display", "block");
     });
     $('#x').on('click', function(){
-        $('#menu').css("display", "none");
+        $('#pop-up-menu').css("display", "none");
     });
+
+    $('#image').on('click', function (){
+        $('#tooltip').css('display', 'block');
+    })
+    $('#image').on('mouseleave', function (){
+        $('#tooltip').css('display', 'none');
+    })
 });

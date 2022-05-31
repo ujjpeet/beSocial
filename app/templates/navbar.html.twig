@@ -1,8 +1,13 @@
 <nav>
-    <img src="{{ asset('icons/besocialicon.svg') }}" alt="">
-    <span> Social</span>
+    <a id="main-page-link" href="{{ path('menu_page') }}">
+        <img src="{{ asset('icons/besocialicon.svg') }}" alt="">
+        <span>Social</span>
+    </a>
     <img id="hamburger-menu" src="{{ asset('icons/hamburgermenu.svg') }}" alt="">
-    <div id="menu" style="display: none">
+    <div>
+        <a id="admin-link" href="{{ path('admin_index') }}">Admin</a>
+    </div>
+    <div id="pop-up-menu" style="display: none">
         <table>
             <img id="x" src="{{ asset('icons/x.svg') }}" alt="">
             {% for menuItem in menuItems %}

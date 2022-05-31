@@ -7,18 +7,26 @@ img {
     height: 100px;
 }
 
-span {
+#main-page-link {
+    text-decoration: none;
+    color: black;
+}
+
+nav span {
+    position: absolute;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 55px;
+    margin-top: 10px;
 }
 
 #hamburger-menu {
     height: 40px;
     float: right;
     cursor: pointer;
+    margin-top: 20px;
 }
 
-#menu {
+#pop-up-menu {
     position: fixed;
     width: 33%;
     height: 100%;
@@ -27,6 +35,10 @@ span {
     background-color: orangered;
     border-radius: 30px;
     z-index: 9;
+}
+
+#admin-link {
+    float:right;
 }
 
 #x {
@@ -40,7 +52,7 @@ span {
     cursor: pointer;
 }
 
-#menu table {
+#pop-up-menu table {
     width: 100%;
 }
 

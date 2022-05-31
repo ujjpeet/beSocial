@@ -24,12 +24,12 @@ class MenuType extends AbstractType
                     'constraints' => [
                         new File([
                             'maxSize' => '150000K',
-//                            'mimeTypes' => [
-//                                'application/jpg',
-//                                'application/jpeg',
-//                                'application/png'
-//                            ],
-//                            'mimeTypesMessage' => 'Please upload a valid image',
+                            'mimeTypes' => [
+                                'application/jpg',
+                                'application/jpeg',
+                                'application/png'
+                            ],
+                            'mimeTypesMessage' => 'Please upload a valid image',
                         ])
                     ],
             ])

@@ -1,0 +1,11 @@
+#main-page {
+    text-align: center;
+    height: 100%
+}
+
+#main-page h1 {
+    color: orangered;
+    text-transform: uppercase;
+    font-size: 100px;
+    font-weight: 700;
+}

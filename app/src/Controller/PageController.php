@@ -20,7 +20,7 @@ class PageController extends AbstractController
             'deletedAt' => null
         ]);
 
-        return $this->render('menu.html.twig', [
+        return $this->render('main_page.html.twig', [
             'menuItems' => $menuItems
         ]);
     }
@@ -40,7 +40,7 @@ class PageController extends AbstractController
                 'No product found for id ' . $id
             );
         }
-        return $this->render('show.html.twig', [
+        return $this->render('show_menu_item.html.twig', [
             'menuItem' => $menuItem,
             'menuItems' => $menuItems
         ]);
