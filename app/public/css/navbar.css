@@ -4,7 +4,7 @@ nav {
 }
 
 img {
-    height: 100px;
+    height: 200px;
 }
 
 #main-page-link {
@@ -15,20 +15,20 @@ img {
 nav span {
     position: absolute;
     font-weight: 700;
-    font-size: 55px;
-    margin-top: 10px;
+    font-size: 110px;
+    margin-top: 22px;
 }
 
 #hamburger-menu {
-    height: 40px;
+    height: 80px;
     float: right;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 60px;
 }
 
 #pop-up-menu {
     position: fixed;
-    width: 33%;
+    width: 100%;
     height: 100%;
     right: 0;
     top: 0;
@@ -37,19 +37,19 @@ nav span {
     z-index: 9;
 }
 
-#admin-link {
-    float:right;
-}
-
 #x {
     float: right;
-    border: 5px solid white;
+    border: 15px solid white;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    padding: 8px;
-    margin: 20px;
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: 60px;
     cursor: pointer;
+}
+
+#x:hover {
+    border-color: black;
 }
 
 #pop-up-menu table {
@@ -64,9 +64,34 @@ nav span {
     text-decoration: none;
     color: white;
     font-weight: 500;
-    font-size: 40px
+    font-size: 100px
 }
 
 .menu-item a:hover {
     color: black;
+}
+
+@media screen and (min-width: 1200px) {
+    #pop-up-menu {
+        width: 35%;
+    }
+    img {
+        height: 120px;
+    }
+    nav span {
+        font-size: 70px;
+        margin-top: 10px;
+    }
+    #hamburger-menu {
+        height: 50px;
+        margin-top: 30px;
+    }
+    #x {
+        border: 5px solid white;
+        width: 70px;
+        height: 70px;
+    }
+    .menu-item a{
+        font-size: 60px
+    }
 }

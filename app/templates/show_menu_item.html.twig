@@ -2,11 +2,13 @@
 
 {% block body %}
       <div id="menuItem">
-          <div>2022</div>
+          <div id="year">{{ 'now' | date('Y') }}</div>
           <div id="title">{{ menuItem.title }}</div>
           <div id="description">{{ menuItem.description }}</div>
-          <div id="image"><img src="{{ asset('uploads/images/' ~ menuItem.imageUrl) }}" alt=""></div>
-          <div id="tooltip">{{ menuItem.tooltip }}</div>
-          <div><button>Read more...</button></div>
+          <div id="image">
+              <img src="{{ asset('uploads/images/' ~ menuItem.imageUrl) }}" alt="">
+              <div id="tooltip">{{ menuItem.tooltip }}</div>
+          </div>
+          <div id="button"><button>Read more...</button></div>
     </div>
 {% endblock %}
